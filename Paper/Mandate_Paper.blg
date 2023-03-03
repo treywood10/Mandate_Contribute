@@ -1,0 +1,96 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Mandate_Paper.aux
+The style file: chicago.bst
+Database file #1: /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+Repeated entry---line 86 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{boutton2020
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 468 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{oksamytna2021
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 479 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{lundgren2021
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 716 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{lloyd2021
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 779 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ :  @article{bove2011
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1168 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{blair2021
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1199 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @misc{Deploy
+ :             ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "Improve_Security" isn't style-file defined
+--line 1251 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+Repeated entry---line 1618 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @misc{UN_SC
+ :            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1735 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{bobrow1997maintaining
+ :                               ,
+I'm skipping whatever remains of this entry
+Warning--page numbers missing in bove2011
+Warning--no journal in Brahimi
+Warning--no number and no volume in Brahimi
+Warning--no number and no volume in fjelde2021protecting
+Warning--no number and no volume in lloyd2021
+Warning--no number and no volume in lundgren2021
+Warning--page numbers missing in lundgren2021
+Warning--empty publisher in meiske2017peacekeeping
+Warning--page numbers missing in page2016
+Warning--no number and no volume in perry2013
+Warning--page numbers missing in perry2013
+You've used 96 entries,
+            2861 wiz_defined-function locations,
+            1110 strings with 19009 characters,
+and the built_in function-call counts, 64617 in all, are:
+= -- 5330
+> -- 4799
+< -- 12
++ -- 1435
+- -- 1679
+* -- 5731
+:= -- 11983
+add.period$ -- 271
+call.type$ -- 96
+change.case$ -- 691
+chr.to.int$ -- 89
+cite$ -- 107
+duplicate$ -- 1724
+empty$ -- 3871
+format.name$ -- 1859
+if$ -- 11807
+int.to.chr$ -- 8
+int.to.str$ -- 0
+missing$ -- 77
+newline$ -- 460
+num.names$ -- 958
+pop$ -- 502
+preamble$ -- 1
+purify$ -- 1259
+quote$ -- 0
+skip$ -- 1804
+stack$ -- 0
+substring$ -- 3409
+swap$ -- 589
+text.length$ -- 12
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1842
+warning$ -- 11
+while$ -- 978
+width$ -- 0
+write$ -- 1223
+(There were 9 error messages)

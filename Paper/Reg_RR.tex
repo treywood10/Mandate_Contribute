@@ -1,0 +1,81 @@
+\begin{table}[htbp]\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{The Effect of Risk Ratio on Contributions \label{Table 2}}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{Model 1}        &\multicolumn{1}{c}{Model 2}        &\multicolumn{1}{c}{Model 3}        \\
+\hline \\
+Risk Ratio$_{t-1}$          &      -1.439\sym{**}&      -1.646\sym{**}&      -1.460\sym{**}\\
+                    &     (0.457)        &     (0.373)        &     (0.406)        \\
+[0.25em]
+Battle Deaths$_{t-1}$ (Hundreds)&     -0.0124        &     -0.0588        &       0.883\sym{*} \\
+                    &    (0.0941)        &    (0.0784)        &     (0.419)        \\
+[0.25em]
+Risk Ratio$_{t-1}$ X Battle Deaths$_{t-1}$&                    &                    &      -1.198\sym{*} \\
+                    &                    &                    &     (0.537)        \\
+[0.25em]
+Conflict Termination$_{t-1}$&                    &     -0.0955        &      -0.101        \\
+                    &                    &     (0.128)        &     (0.127)        \\
+[0.25em]
+Low Activity$_{t-1}$        &                    &      -0.604\sym{**}&      -0.602\sym{**}\\
+                    &                    &     (0.143)        &     (0.145)        \\
+[0.25em]
+Conflict Duration$_{t-1}$ (Logged)&                    &      0.0262        &      0.0391        \\
+                    &                    &    (0.0480)        &    (0.0485)        \\
+[0.25em]
+Previous UN Mission$_{t-1}$       &                    &       0.247        &       0.238        \\
+                    &                    &     (0.162)        &     (0.163)        \\
+[0.25em]
+Re-hatted$_{t-1}$          &                    &       0.171        &       0.207        \\
+                    &                    &     (0.151)        &     (0.148)        \\
+[0.25em]
+Host GDP per Capita$_{t-1}$ (Thousands)&                    &     -0.0226        &     -0.0236        \\
+                    &                    &    (0.0165)        &    (0.0167)        \\
+[0.25em]
+Host Size$_{t-1}$ (Million Sq. Km)&                    &       0.157\sym{\dagger} &       0.143        \\
+                    &                    &    (0.0938)        &    (0.0950)        \\
+[0.25em]
+Host Democracy$_{t-1}$      &                    &      -0.168        &      -0.239        \\
+                    &                    &     (0.356)        &     (0.350)        \\
+[0.25em]
+Contributor GDP per Capita$_{t-1}$ (Thousands)&                    &    -0.00340        &    -0.00353        \\
+                    &                    &   (0.00781)        &   (0.00773)        \\
+[0.25em]
+Contributor Democracy$_{t-1}$&                    &       1.646\sym{**}&       1.658\sym{**}\\
+                    &                    &     (0.425)        &     (0.421)        \\
+[0.25em]
+Number of Contributors$_{t-1}$&                    &    -0.00542        &    -0.00505        \\
+                    &                    &   (0.00380)        &   (0.00380)        \\
+[0.25em]
+Troop Quality$_{t-1}$ (Millions)&                    &    0.000324        &    0.000317        \\
+                    &                    &   (0.00165)        &   (0.00163)        \\
+[0.25em]
+Total Contributed Troops$_{t-1}$ (Hundreds)&                    &      0.0199\sym{**}&      0.0197\sym{**}\\
+                    &                    &   (0.00626)        &   (0.00617)        \\
+[0.25em]
+Same Continent$_{t-1}$      &                    &       0.349\sym{*} &       0.339\sym{*} \\
+                    &                    &     (0.154)        &     (0.153)        \\
+[0.25em]
+Trade$_{t-1}$ (Billions)    &                    &       0.170\sym{*} &       0.173\sym{*} \\
+                    &                    &    (0.0753)        &    (0.0752)        \\
+[0.25em]
+S-Score$_{t-1}$             &                    &       0.689        &       0.712\sym{\dagger} \\
+                    &                    &     (0.430)        &     (0.427)        \\
+[0.25em]
+Troops$_{t-1}$              &     0.00654\sym{**}&     0.00580\sym{**}&     0.00581\sym{**}\\
+                    &  (0.000920)        &  (0.000852)        &  (0.000851)        \\
+[0.25em]
+Constant            &       3.321\sym{**}&       2.201\sym{**}&       2.030\sym{**}\\
+                    &     (0.376)        &     (0.487)        &     (0.493)        \\
+\hline
+lnalpha             &       1.997\sym{**}&       1.841\sym{**}&       1.841\sym{**}\\
+                    &    (0.0801)        &    (0.0739)        &    (0.0739)        \\
+\hline
+Observations        &       79107        &       72292        &       72292        \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize Contributing state clustered standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize Dependent variable is troop counts. 15 potential contributor random sample.}\\
+\multicolumn{4}{l}{\footnotesize \sym{\dagger} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\). Two-tailed test.}\\
+\end{tabular}
+\end{table}

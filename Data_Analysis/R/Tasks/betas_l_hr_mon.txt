@@ -1,0 +1,2 @@
+betasl_hr_mon	betaslag_best	betasinter	betaslag_contributors	betaslag_re_hat	betaslag_un_change	betaslag_GDP_cont	betaslag_dem_cont	betaslag_all_troops	betaslag_cont_troop_prop	betaslag_same_continent	betaslag_bi_trade	betaslag_joint_ios	betasl_troops	betas_cons	betaslnalpha
+.1878691	.0000479	.0004565	-.0389639	-.0609852	.5644868	-.1124924	2.16189	.0247058	1.290219	.0444588	.1851075	.0199205	.5226288	.181666	1.900372

@@ -1,0 +1,83 @@
+\begin{table}[htbp]\centering
+\fontsize{10}{10}\selectfont
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{The Effect of Risk Ratio on Contributions without Battle Death Restrictions \label{Table 5}}
+\begin{tabular}{l*{2}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}        &\multicolumn{1}{c}{(2)}        \\
+                    &          Model 4        &          Model 5       \\
+\hline
+Risk Ratio$_{t-1}$          &      -1.640\sym{**}&      -1.623\sym{**}\\
+                    &     (0.360)        &     (0.360)        \\
+[0.25em]
+Battle Deaths$_{t-1}$ (Hundreds)&    0.000171        &      0.0201\sym{*} \\
+                    &  (0.000342)        &   (0.00871)        \\
+[0.25em]
+Risk Ratio$_{t-1}$ X Battle Deaths$_{t-1}$ &                    &     -0.0202\sym{*} \\
+                    &                    &   (0.00866)        \\
+[0.25em]
+Conflict Termination$_{t-1}$&     -0.0316        &     -0.0381        \\
+                    &     (0.122)        &     (0.123)        \\
+[0.25em]
+Low Activity$_{t-1}$        &      -0.560\sym{**}&      -0.555\sym{**}\\
+                    &     (0.141)        &     (0.141)        \\
+[0.25em]
+Conflict Duration$_{t-1}$ (Logged)&      0.0175        &      0.0168        \\
+                    &    (0.0476)        &    (0.0474)        \\
+[0.25em]
+Previous UN Mission$_{t-1}$ &       0.200        &       0.187        \\
+                    &     (0.154)        &     (0.154)        \\
+[0.25em]
+Re-hatted$_{t-1}$           &       0.117        &       0.118        \\
+                    &     (0.152)        &     (0.152)        \\
+[0.25em]
+Host GDP per Capita$_{t-1}$ (Thousands)&     -0.0223        &     -0.0229        \\
+                    &    (0.0164)        &    (0.0164)        \\
+[0.25em]
+Host Size$_{t-1}$ (Million Sq. Km)&       0.101        &      0.0992        \\
+                    &    (0.0855)        &    (0.0854)        \\
+[0.25em]
+Host Democracy$_{t-1}$      &     -0.0862        &     -0.0623        \\
+                    &     (0.375)        &     (0.372)        \\
+[0.25em]
+Contributor GDP per Capita$_{t-1}$ (Thousands)&    -0.00294        &    -0.00296        \\
+                    &   (0.00781)        &   (0.00782)        \\
+[0.25em]
+Contributor Democracy$_{t-1}$&       1.536\sym{**}&       1.542\sym{**}\\
+                    &     (0.418)        &     (0.419)        \\
+[0.25em]
+Number of Contributors$_{t-1}$&    -0.00498        &    -0.00480        \\
+                    &   (0.00374)        &   (0.00374)        \\
+[0.25em]
+Troop Quality$_{t-1}$ (Millions)&    0.000118        &    0.000121        \\
+                    &   (0.00159)        &   (0.00159)        \\
+[0.25em]
+Total Contributed Troops$_{t-1}$ (Hundreds)&      0.0186\sym{**}&      0.0186\sym{**}\\
+                    &   (0.00565)        &   (0.00565)        \\
+[0.25em]
+Same Continent$_{t-1}$      &       0.276\sym{\dagger} &       0.272\sym{\dagger} \\
+                    &     (0.159)        &     (0.160)        \\
+[0.25em]
+Trade$_{t-1}$ (Billions)    &       0.175\sym{**}&       0.176\sym{**}\\
+                    &    (0.0660)        &    (0.0660)        \\
+[0.25em]
+S-Score$_{t-1}$             &       0.805\sym{\dagger} &       0.804\sym{\dagger} \\
+                    &     (0.439)        &     (0.440)        \\
+[0.25em]
+Troops$_{t-1}$              &     0.00570\sym{**}&     0.00571\sym{**}\\
+                    &  (0.000860)        &  (0.000862)        \\
+[0.25em]
+Constant            &       2.215\sym{**}&       2.189\sym{**}\\
+                    &     (0.486)        &     (0.489)        \\
+\hline
+lnalpha             &       1.831\sym{**}&       1.831\sym{**}\\
+                    &    (0.0732)        &    (0.0731)        \\
+\hline
+Observations        &       78848        &       78848        \\
+\hline\hline
+\multicolumn{3}{l}{\fontsize{8}{8}\selectfont Contributing state clustered standard errors in parentheses.}\\
+\multicolumn{3}{l}{\fontsize{8}{8}\selectfont Dependent variable is troop counts. 15 potential contributor random sample. No battle death restriction.}\\
+\multicolumn{3}{l}{\fontsize{8}{8}\selectfont \sym{\dagger} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\). Two-tailed test.}\\
+\end{tabular}
+\vspace{-10em}
+\end{table}

@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry} % Create 1 inch margins
+\usepackage{natbib} % Citation package 
+\usepackage{indentfirst} % Indent the first paragraph of the 1st paragraph of each new section. 
+\usepackage{setspace} % Package to set my line spacing
+\usepackage[bottom]{footmisc}
+\doublespacing % declare double space
+\interfootnotelinepenalty=999999999
+\usepackage{sectsty}
+\sectionfont{\normalfont\fontfamily{ptm}\fontsize{12}{12}\bfseries}
+\subsectionfont{\normalfont\fontfamily{ptm}\fontsize{12}{12}\itshape}
+\usepackage{times} % Text font as TNR
+\usepackage{graphicx} % Include images 
+%\usepackage[none]{hyphenat} % Stops breaking up words at the right side of the page. 
+\usepackage{comment} % Pakeage to let me comment out large secitons at a time.
+\usepackage{xurl} % Fix urls on the page
+\usepackage{graphicx} % Include Graphics
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref} % Hyperlink to figures and bibliography
+\usepackage{fancyhdr} % All of this is to put the page number at the bottom right
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt} % This says to not put the line at the top of the apge that makes it "fancy".
+\setlength{\parindent}{1cm}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\usepackage{soul} % Fix wrapping of underlined text
+\usepackage[font=small]{caption} %Change the size of the "Figre XX" caption part. 
+\usepackage{xcolor}
+\usepackage{import}
+\usepackage{tikz,pgfplots}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usepackage{titling}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{appendix}
+
+\title{UN-Interested Suppliers \\
+\large Effects of Peacekeeping Mandates on Contributions \\
+\large \textbf{Oneline Appendix}}
+\author{Robert Wood \\
+University of Kentucky}
+\date{\today}
+
+\begin{document}
+
+\begin{titlingpage}
+\maketitle
+\end{titlingpage}
+
+\appendix 
+
+\renewcommand{\thesection}{Appendix \Alph{section}}
+\setcounter{section}{0}
+
+\renewcommand{\thetable}{\Alph{section}\arabic{table}}
+\setcounter{table}{0}
+
+\renewcommand{\thefigure}{\Alph{section}\arabic{figure}}
+\setcounter{figure}{0}
+
+\begin{landscape}
+\begin{centering}
+\section{}
+\end{centering}
+\input{Reg_All_Robust_Final}
+\end{landscape}
+
+
+\begin{figure}[t!]
+\center{\includegraphics[height=4in]{gg_M13_sim.jpg}}
+\caption{\small Marginal effect of risk ratio on contributions conditional on battle deaths with 95\% confidence intervals from Model 13.}
+\label{fig:Figure 6}
+\end{figure}
+
+\clearpage
+
+\begin{centering}
+\section{}
+\setcounter{table}{0}
+\end{centering}
+
+\vspace{-3em}
+
+\begin{singlespace}
+\begin{center}
+\input{Missions}
+\end{center}
+\end{singlespace}
+
+\newpage
+
+\begin{centering}
+\section{}
+\setcounter{table}{0}
+\end{centering}
+
+\input{Meta_Analysis}
+
+\clearpage
+
+\begin{centering}
+\section{}
+\setcounter{table}{0}
+\end{centering}
+
+
+\begin{doublespace}
+
+To demonstrate that battle deaths does not predict mandate risk, I estimate a fractional logistic regression since the dependent variable is bound between 0 and 1. The unit of analysis for this model is the mission-month as it best captures the variation in the level of mandate risk. I include controls related to conflict conditions and the host state to limit potential confounders and cluster the standard errors on the mission. The results can be found in Table \ref{Fraq}. A few control variables are statistically significant such as conflict termination, conflict duration, host GDP per capita, and host democracy, but battle deaths does not approach statistical significance in neither the naive model or the full model. This suggests that the two independent variables of interest are not mutually reinforcing allowing for valid inference between mandate risk and battle deaths on troop contributions.
+
+\end{doublespace}
+
+\vspace{-0.5em}
+
+\input{Reg_Frac_Final.tex}
+
+\newpage
+\begin{comment}
+\begin{centering}
+\section*{Appendix 11}
+\subsection*{Theoretical Treatment of Endogeneity}
+\end{centering}
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+
+% Nodes 
+\node[rectangle, draw] at (0, 0) (l) {\large Risk} ; 
+\node[rectangle, draw] at (5,0) (r) {\large Troops} ; 
+\node[rectangle, draw] at (2.5, 1) (t) {\large United Nations} ; 
+\node at (1, 0.6) (s1) {\large $+$} ; 
+\node at (4, 0.6) (s2) {\large $+$} ;
+\node at (2.5, -0.5) (dir) {\large Expected Overall Bias: $+$} ;
+
+% Lines 
+\draw[->, line width = 0.5mm] (l) -- (r) ; 
+\draw[->, line width = 0.5mm] (t) -- (l) ; 
+\draw[->, line width = 0.5mm] (t) -- (r) ; 
+
+
+\end{tikzpicture}
+\end{center}
+\caption{Directed Acyclical Graph of Endogenous Relationship}
+\label{fig:Figure 7}
+\end{figure}
+
+\begin{singlespace}
+
+Scholars in the peacekeeping literature have noted how relationships involving peacekeepers likely suffer from endogeneity \citep[Ex.][]{fortna2004,fjelde2019}, but these forms of endogeneity bias against their results. I argue that my statistical model likely experiences bias in the same form. To explain the expected endogeneity, I use a Directed Acyclical Graph (DAG)\footnotemark[19] in Figure \ref{fig:Figure 7} to clarify my expectations. The DAG visualizes the relationship between risk, the independent variable, and troops, the dependent variable, that is confounded by an unobserved factor, labeled the United Nations. To estimate an unconfounded causal effect, peacekeeping operations would need to be randomly assigned, but the unobserved factor rooted in the United Nations inhibits random assignment. This unobserved factor can be conceptualized as the United Nation's desire for the the mission to be successful. When the United Nations forms a mission, the Security Council seeks to provide the mission with enough resources to fulfill the mandate and support international peace \citep{allen2014}. These resources include the number of troops contributed by each contributing country. By increasing the count of contributions, the mission will have an increased likelihood of establishing peace \citep{hultman2016united}. As a result, I expect that United Nations' desire for mission success is positively correlated with the contribution of troops. To give the mission its best chance of success and to limit negative externalities of conflict, the United Nations will include tasks relating to reducing battle deaths \citep{hultman2014beyond}, protecting civilians \citep{hultman2013united}, and reducing the duration of conflict \citep{hultman2016united}. This is especially observed with the rise of robust mandates \citep{lloyd_diss}. As a result, the United Nations will add tasks such as Chapter VII enforcement, the protection of civilians, and monitor buffer zones that increase the risk of peacekeeping mandates. This leads me to expect that the United Nations desire for mission success will increase risk. Since both theoretical relationships between the unobserved variable and observed variables exhibit a positive association, I can conclude that my expected bias is positive and biasing in favor of null findings. Had this unobserved characteristic been measured, by results would be more convincing.
+
+In addition to endogeneity concerned with the non-random assignment of a mission, this study rests on a potentially troublesome assumption. The deterrent effect of mandate risk works under the assumption that all mandate tasks require the same number of troops to successfully complete the task. However, in reality, this is likely not the case leading bias that I believe favors of the null hypothesis. The Untied Nations does not provide official recommendations on troop sizes required to complete each task, but rather leaves these decisions up to the preferences of the mission force commander. In a manual on the use of force provided by the Department of Peacekeeping Operations, the United Nations recommends that force commanders consider factors such as military capabilities, force safety, and security of mission personnel when considering the use of force. Force commanders must mitigate risks associated with the conflict environment and the use of force suggesting the possibility of inaction, but force commanders are held accountable for their inaction or failure to protect, especially in situations where lives are at risk \citep{Use_Force}. In the United Nations Infantry Battalion Manual, commanders are instructed to create military units that are equipped to provide self-protection while also deterring potential threats in hostile environments to demonstrate the United Nations' credibility and legitimacy \citep{Infantry}. In the face of risky mission environments, and the potential of being reprimanded for inaction or failure, force commanders prefer to send larger units as a costly signal of deterrence. To effectively send a costly signal of deterrence the mission must be able to use force requiring the associated tasks that increase mission risk. With this in mind, force commanders will prefer to have larger military contingents when dealing with risky tasks biasing towards larger troops contributions. This suggests that my models are a more difficult test of my theoretical argument. 
+
+\end{singlespace}
+\end{comment}
+\clearpage
+
+\begin{center}
+\section{}
+\setcounter{table}{0}
+\end{center}
+
+\begin{doublespace}
+\input{Task_Explain}
+\end{doublespace}
+
+\pagebreak
+
+\newpage % Page break to seperate the work from the bibliography. 
+\singlespacing
+
+\bibliographystyle{apsr_2} % My citation style is APSR
+
+\bibliography{/Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib} % This locates my bibliographic information
+
+\end{document}

@@ -1,0 +1,53 @@
+\begin{table}[t]\centering
+\scriptsize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Table of Task Risk}
+\label{Table 1}
+\begin{tabular}{c*{2}{c}}
+\hline\hline
+                    \multicolumn{1}{c}{Risky}         &\multicolumn{1}{c}{Less Risky}      \\
+\hline \\
+Monitoring Peace Agreements                                & Monitor the Weapons Trade \\
+Subtasks: Buffer Monitor, Liaise War Parties,              & Subtasks: Monitor Weapon's Embargo, Inspect Cargo \\
+Promote Good Offices                                       & \\
+[0.5em]
+Peace Agreement Implementation                             & Monitor Use of Natural Resources\\
+[0.5em]
+Monitor Human Rights                                       & Monitor Elections \\
+Subtask: Monitor the Refugee Situation                     & Provide Security During the Electoral Period \\
+[0.5em]
+Protect Human Rights                                       & Assist with Election Implementation \\
+Subtasks: Protect Children, Protect Women,                 & (Technical or Logistical Assistance) \\
+[0.5em]
+Protect Civilians                                          & \\
+[0.5em]
+Protect UN Personnel (Ensure Security)                     & Build Government Capacity \\
+                                                           & Subtask: Implement Government Policies \\
+[0.5em]
+Assist in Demining                                         & Preserve Cultural and Historical Sites \\
+[0.5em]
+Assit Refugees                                             & Assist in the Implementation of Quick Impact Projects (QIP)\\
+[0.5em]
+Facilitate the Delivery of Humanitarian Assistance         & Assist with Justice Sector Reform \\
+Subtask: Protect Humanitarian Personnel (Ensure Security)  & \\
+[0.5em]
+Monitor Borders                                            & Promote National Reconciliation \\
+                                                           & Subtask: Pursue Justice for War Criminals \\
+[0.5em]
+Chapter VII Authorization                                  & Disseminate Info About the Mission to the Public \\
+[0.5em]
+Assist with Security Sector Reform                         & Promote Freedom of the Press \\
+Subtasks: Assist Police Reform, Monitor the Police,        & \\
+Conduct Joint Patrols with Police                          & \\
+[0.5em]
+Monitor Disarmament, Demobilization,                       & \\
+and Reintegration                                          & \\
+[0.5em]
+Help Implement Disarmament, Demobilization,                & \\
+and Reintegration                                          & \\
+[0.5em]
+\hline\hline
+\multicolumn{1}{l}{\scriptsize Table adapted from tasks coded in Lloyd (2021).}\\
+\end{tabular}
+\end{table}
+

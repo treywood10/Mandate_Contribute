@@ -1,0 +1,65 @@
+\begin{table}[htbp]\centering
+\footnotesize
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{The Effect of Risk Ratio on Contributions \label{Table 2}}
+\begin{tabular}{l*{5}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{Model 1} &\multicolumn{1}{c}{Model 2} &\multicolumn{1}{c}{Model 3} &\multicolumn{1}{c}{Model 4} &\multicolumn{1}{c}{Model 5}        \\
+\hline
+Risk Ratio$_{t-1}$          &      -1.601\sym{**}&      -2.103\sym{**}&      -1.875\sym{**}&      -1.250\sym{**}&      -1.179\sym{**}\\
+                    &     (0.498)        &     (0.459)        &     (0.477)        &     (0.444)        &     (0.457)        \\
+[0.5em]
+Battle Deaths$_{t-1}$ (Hundreds)&       0.012        &       0.072        &       2.359\sym{**}&       0.087        &       0.929        \\
+                    &     (0.085)        &     (0.099)        &     (0.636)        &     (0.104)        &     (0.668)        \\
+Risk Ratio$_{t-1}$ X Battle Deaths$_{t-1}$&                    &                    &      -3.086\sym{**}&                    &      -1.150        \\
+                    &                    &                    &     (0.858)        &                    &     (0.940)        \\
+[0.5em]
+Troop Shortfall$_{t-1}$ (Hundreds)&                    &                    &                    &       0.015\sym{**}&       0.015\sym{**}\\
+                    &                    &                    &                    &     (0.002)        &     (0.002)        \\
+[0.5em]
+Number of Contributors$_{t-1}$ (Tens)&                    &      -0.069\sym{\dagger} &      -0.073\sym{\dagger} &      -0.099\sym{**}&      -0.100\sym{**}\\
+                    &                    &     (0.036)        &     (0.038)        &     (0.038)        &     (0.038)        \\
+[0.5em]
+Re-hatted$_{t-1}$           &                    &      -0.045        &      -0.043        &      -0.131        &      -0.130        \\
+                    &                    &     (0.156)        &     (0.155)        &     (0.169)        &     (0.169)        \\
+[0.5em]
+Previous UN Mission$_{t-1}$ &                    &       0.555\sym{**}&       0.539\sym{**}&       0.486\sym{**}&       0.479\sym{**}\\
+                    &                    &     (0.132)        &     (0.133)        &     (0.156)        &     (0.156)        \\
+[0.5em]
+Contributor GDP per Capita$_{t-1}$ (Ten Thousands)&                    &      -0.114\sym{*} &      -0.114\sym{*} &      -0.110\sym{*} &      -0.110\sym{*} \\
+                    &                    &     (0.053)        &     (0.052)        &     (0.050)        &     (0.050)        \\
+[0.5em]
+Contributor Democracy$_{t-1}$&                    &       2.324\sym{**}&       2.290\sym{**}&       2.315\sym{**}&       2.304\sym{**}\\
+                    &                    &     (0.501)        &     (0.500)        &     (0.512)        &     (0.513)        \\
+[0.5em]
+Total Contributed Troops$_{t-1}$ (Hundreds)&                    &       0.027\sym{**}&       0.026\sym{**}&       0.020\sym{**}&       0.020\sym{**}\\
+                    &                    &     (0.009)        &     (0.009)        &     (0.007)        &     (0.007)        \\
+[0.5em]
+Proportion of Contributor Troops$_{t-1}$&                    &       1.109\sym{\dagger} &       1.108\sym{\dagger} &       1.462\sym{\dagger} &       1.459\sym{\dagger} \\
+                    &                    &     (0.576)        &     (0.575)        &     (0.773)        &     (0.771)        \\
+[0.5em]
+Same Continent$_{t-1}$      &                    &      -0.004        &       0.005        &      -0.160        &      -0.155        \\
+                    &                    &     (0.170)        &     (0.166)        &     (0.176)        &     (0.174)        \\
+[0.5em]
+Trade$_{t-1}$ (Billions)    &                    &       0.168\sym{*} &       0.162\sym{*} &       0.314\sym{**}&       0.310\sym{**}\\
+                    &                    &     (0.080)        &     (0.076)        &     (0.118)        &     (0.117)        \\
+[0.5em]
+Joint IOs$_{t-1}$           &                    &       0.020\sym{**}&       0.019\sym{**}&       0.020\sym{**}&       0.020\sym{**}\\
+                    &                    &     (0.007)        &     (0.007)        &     (0.007)        &     (0.007)        \\
+[0.5em]
+Troops$_{t-1}$              &       0.632\sym{**}&       0.519\sym{**}&       0.519\sym{**}&       0.551\sym{**}&       0.550\sym{**}\\
+                    &     (0.093)        &     (0.083)        &     (0.083)        &     (0.092)        &     (0.092)        \\
+[0.5em]
+Constant            &       3.529\sym{**}&       1.833\sym{**}&       1.707\sym{**}&       0.987        &       0.953        \\
+                    &     (0.430)        &     (0.604)        &     (0.602)        &     (0.627)        &     (0.623)        \\
+\hline
+lnalpha             &       2.056\sym{**}&       1.884\sym{**}&       1.882\sym{**}&       1.753\sym{**}&       1.752\sym{**}\\
+                    &     (0.099)        &     (0.090)        &     (0.090)        &     (0.089)        &     (0.089)        \\
+\hline
+Observations        &       78659        &       72553        &       72553        &       61665        &       61665        \\
+\hline\hline
+\multicolumn{6}{l}{\footnotesize State clustered standard errors in parentheses}\\
+\multicolumn{6}{l}{\footnotesize Dependent variable is troop counts. 15 potential contributor random sample.}\\
+\multicolumn{6}{l}{\footnotesize \sym{\dagger} \(p<0.10\), \sym{*} \(p<0.05\), \sym{**} \(p<0.01\). Two-tailed test.}\\
+\end{tabular}
+\end{table}

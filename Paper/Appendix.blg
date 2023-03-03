@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Appendix.aux
+The style file: apsr_2.bst
+Database file #1: /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+Repeated entry---line 716 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{lloyd2021
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1168 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+ : @article{blair2021
+ :                   ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "res_2556" isn't style-file defined
+--line 1529 of file /Users/treywood/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper/PKO.bib
+Warning--no number and no volume in fjelde2021protecting
+Warning--no number and no volume in lloyd2021
+Warning--empty institution in TAMM_Codebook
+You've used 28 entries,
+            2859 wiz_defined-function locations,
+            776 strings with 8933 characters,
+and the built_in function-call counts, 16855 in all, are:
+= -- 1452
+> -- 1062
+< -- 2
++ -- 296
+- -- 374
+* -- 1410
+:= -- 3130
+add.period$ -- 78
+call.type$ -- 28
+change.case$ -- 158
+chr.to.int$ -- 24
+cite$ -- 31
+duplicate$ -- 484
+empty$ -- 1105
+format.name$ -- 418
+if$ -- 3080
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 22
+newline$ -- 136
+num.names$ -- 274
+pop$ -- 129
+preamble$ -- 1
+purify$ -- 345
+quote$ -- 0
+skip$ -- 501
+stack$ -- 0
+substring$ -- 983
+swap$ -- 157
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 524
+warning$ -- 3
+while$ -- 285
+width$ -- 0
+write$ -- 356
+(There were 2 error messages)
