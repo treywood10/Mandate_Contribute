@@ -3,8 +3,8 @@
 /*     	Date:   	November 3, 2022                            */
 /*      Author: 	Robert Lee Wood III				            */
 /*      Purpose:	Create Dataset for Mandate_Contribute		*/
-/*      Input Files: 				    						*/
-/*     	Output File: 						                    */	
+/*      Input Files: Multiple		    						*/
+/*     	Output File: Mandate_cont.dta			                */	
 /*	*************************************************************/
 
 
