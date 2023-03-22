@@ -281,6 +281,104 @@ save "Data_Analysis/R/Tasks/Task_data.dta", replace
 clear
 
 
+*****************************************
+*** Non-strategic mandates and troops ***
+*****************************************
+
+* Model 2: All observations *
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res, difficult cluster(ccode_cont)
+
+
+* Save coefficient and var-cov matrix *
+mat betas = e(b)
+mat vcovs = e(V)
+
+
+* Export coefficient and covariance matrix *
+preserve 
+svmat betas, names(matcol)
+outsheet betas* in 1 using "Data_Analysis/R/betas/betas_m2_all.txt", replace nolabel 
+svmat vcovs, names(matcol)
+outsheet vcovs* using "Data_Analysis/R/vcovs/vcovs_m2_all.txt", replace nolabel 
+restore 
+
+
+* Model 2: Pre-2000 *
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult cluster(ccode_cont)
+
+
+* Save coefficient and var-cov matrix *
+mat betas = e(b)
+mat vcovs = e(V)
+
+
+* Export coefficient and covariance matrix *
+preserve 
+svmat betas, names(matcol)
+outsheet betas* in 1 using "Data_Analysis/R/betas/betas_m2_pre.txt", replace nolabel 
+svmat vcovs, names(matcol)
+outsheet vcovs* using "Data_Analysis/R/vcovs/vcovs_m2_pre.txt", replace nolabel 
+restore 
+
+
+* Model 2: Post-2000 *
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult cluster(ccode_cont)
+
+
+* Save coefficient and var-cov matrix *
+mat betas = e(b)
+mat vcovs = e(V)
+
+
+* Export coefficient and covariance matrix *
+preserve 
+svmat betas, names(matcol)
+outsheet betas* in 1 using "Data_Analysis/R/betas/betas_m2_post.txt", replace nolabel 
+svmat vcovs, names(matcol)
+outsheet vcovs* using "Data_Analysis/R/vcovs/vcovs_m2_post.txt", replace nolabel 
+restore 
+
+
+
+
+
+
+
+
+
+*** Try suest ***
+
+* Model 2 *
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
+estimates title: "Pre-2000"
+estimates store pre00
+
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
+estimates title: "Post-2000"
+estimates store post00
+
+suest pre00 post00, vce(cluster ccode_cont)
+test [pre00_troops]lag_risk_ratio==[post00_troops]lag_risk_ratio
+
+
+* Model 4 *
+gen inter = lag_risk_ratio * lag_best_2
+nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
+estimates title: "Pre-2000 Interaction"
+estimates store pre00_int
+
+nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
+estimates title: "Post-2000 Interaction"
+estimates store post00_int
+
+suest pre00_int post00_int, vce(cluster ccode_cont)
+test [pre00_int_troops]lag_risk_ratio==[post00_int_troops]lag_risk_ratio
+test [pre00_int_troops]inter==[post00_int_troops]inter
+
+
+
+
+
 ************************
 *** Appendix Table 1 ***
 ************************
@@ -657,39 +755,6 @@ title(Predicting Mandate Risk with Conflict Dynamics\label{Fraq}) ///
 star(+ 0.10 * 0.05 ** 0.01) ///
 addnotes("Dependent variable is risk ratio.") ///
 replace 
-
-
-
-
-*** Try suest ***
-
-* Model 2 *
-nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
-estimates title: "Pre-2000"
-estimates store pre00
-
-nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
-estimates title: "Post-2000"
-estimates store post00
-
-suest pre00 post00, vce(cluster ccode_cont)
-test [pre00_troops]lag_risk_ratio==[post00_troops]lag_risk_ratio
-
-
-* Model 4 *
-gen inter = lag_risk_ratio * lag_best_2
-nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
-estimates title: "Pre-2000 Interaction"
-estimates store pre00_int
-
-nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
-estimates title: "Post-2000 Interaction"
-estimates store post00_int
-
-suest pre00_int post00_int, vce(cluster ccode_cont)
-test [pre00_int_troops]lag_risk_ratio==[post00_int_troops]lag_risk_ratio
-test [pre00_int_troops]inter==[post00_int_troops]inter
-
 
 
 
