@@ -661,6 +661,36 @@ replace
 
 
 
+*** Try suest ***
+
+* Model 2 *
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
+estimates title: "Pre-2000"
+estimates store pre00
+
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
+estimates title: "Post-2000"
+estimates store post00
+
+suest pre00 post00, vce(cluster ccode_cont)
+test [pre00_troops]lag_risk_ratio==[post00_troops]lag_risk_ratio
+
+
+* Model 4 *
+gen inter = lag_risk_ratio * lag_best_2
+nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
+estimates title: "Pre-2000 Interaction"
+estimates store pre00_int
+
+nbreg troops lag_risk_ratio lag_best_2 inter $mission $contributor $dyad l_troops if $samp_res & year > 1999, difficult 
+estimates title: "Post-2000 Interaction"
+estimates store post00_int
+
+suest pre00_int post00_int, vce(cluster ccode_cont)
+test [pre00_int_troops]lag_risk_ratio==[post00_int_troops]lag_risk_ratio
+test [pre00_int_troops]inter==[post00_int_troops]inter
+
+
 
 
 
