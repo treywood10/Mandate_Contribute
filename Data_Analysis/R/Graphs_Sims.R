@@ -849,7 +849,7 @@ remove(x1, x2, x3)
 # Order Levels of model #
 x <- x %>%
   mutate(model = factor(model,
-                           levels = c("All", "Pre-2000", "Post-2000")))
+                           levels = c("Post-2000", "Pre-2000", "All")))
 
 
 # Make Figure #

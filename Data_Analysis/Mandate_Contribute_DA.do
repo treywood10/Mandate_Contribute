@@ -426,7 +426,7 @@ use Data_Analysis/Mandate_Cont.dta, clear
 *** suest for Test stat and p-value ***
 
 * Model 2 *
-nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult 
+nbreg troops lag_risk_ratio lag_best_2 $mission $contributor $dyad l_troops if $samp_res & year <= 1999, difficult beta
 estimates title: "Pre-2000"
 estimates store pre00
 
