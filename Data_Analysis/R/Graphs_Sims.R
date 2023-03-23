@@ -8,6 +8,7 @@ require(ggpubr)
 library(lattice)  
 library(MASS)     
 library(VGAM)
+library(ggridges)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -746,6 +747,267 @@ plot <- ggplot(data = all_mfx[37:69,], aes(shape = reorder(X, desc(X)))) +
 ggsave("gg_Tasks_sim_2.jpg", path = "~/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper", width = 18, height = 20, dpi = 800)
 
 
+#~~~~~~~~~~~~~~~~~~~~~~~#
+#### Figures 5 and 6 ####
+#~~~~~~~~~~~~~~~~~~~~~~~#
+
+### Model 2: All ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m2_all.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m2_all.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x1 <- data.frame(simb[, 1])
+
+
+# Add identifier #
+x1 <- x1 %>%
+  mutate(model = "All") %>%
+  rename(V1 = simb...1.)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+### Model 2: Pre ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m2_pre.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m2_pre.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x2 <- data.frame(simb[, 1])
+
+
+# Add identifier #
+x2 <- x2 %>%
+  mutate(model = "Pre-2000") %>%
+  rename(V1 = simb...1.)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+### Model 2: Post ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m2_post.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m2_post.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x3 <- data.frame(simb[, 1])
+
+
+# Add identifier #
+x3 <- x3 %>%
+  mutate(model = "Post-2000") %>%
+  rename(V1 = simb...1.)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+# Combine simulations #
+x <- rbind(x1, x2, x3)
+remove(x1, x2, x3)
+
+
+# Order Levels of model #
+x <- x %>%
+  mutate(model = factor(model,
+                           levels = c("All", "Pre-2000", "Post-2000")))
+
+
+# Make Figure #
+g1 <- ggplot(x, aes(x = V1, y = model)) + 
+  geom_density_ridges(quantile_lines = TRUE, quantiles = c(0.025, 0.50, 0.975),
+                      rel_min_height = 0.00001, size = 1.2, scale = 0.75) +
+  geom_vline(xintercept = 0, linewidth = 1.5) +
+  xlab(expression("Risk Ratio"[italic("t-1")])) +
+  ggtitle("Effect of Risk Ratio Pre-Post Brahimi, Model 2") +
+  theme(plot.title = element_text(hjust = 0.5, size = 45),
+        plot.subtitle = element_text(hjust = 0.5, size = 30),
+        axis.title = element_text(size = 40),
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 40, margin = margin(20, 0, 0, 0)),
+        legend.title = element_text(size = 40),
+        legend.text = element_text(size = 40),
+        legend.key.size = unit(2, "cm"),
+        axis.text.x = element_text(size = 40),
+        axis.text.y = element_text(size = 40),
+        text = element_text(family = "Times New Roman"),
+        plot.margin = margin(1, 1, 1, 1, "cm"),
+        axis.ticks.length = unit(.25, "cm"))
+ggsave("gg_m2_pre_post.jpg", path = "~/Dropbox/Projects/Active_Projects/Dissertation/Paper", width = 16, height = 12, dpi = 800)
+
+
+### Model 4: All ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m4_all.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m4_all.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x1 <- data.frame(simb[, 1:3])
+
+
+# Add identifier #
+x1 <- x1 %>%
+  mutate(model = "All") %>%
+  rename(rr = X1,
+         best = X2,
+         inter = X3)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+### Model 4: Pre-2000 ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m4_pre.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m4_pre.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x2 <- data.frame(simb[, 1:3])
+
+
+# Add identifier #
+x2 <- x2 %>%
+  mutate(model = "Pre-2000") %>%
+  rename(rr = X1,
+         best = X2,
+         inter = X3)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+### Model 4: Post-2000 ###
+
+# Betas #
+betas <- as.matrix(read.table("betas/betas_m4_post.txt", header = T))
+
+
+# var-cov #
+vcov <- as.matrix(read.table("vcovs/vcovs_m4_post.txt", header = T))
+
+
+# Simulate coefficients #
+nsims <- 20000
+set.seed(1234)
+simb <- mvrnorm(n = nsims, mu = betas, Sigma = vcov)
+
+
+# Pull lag_risk_ratio #
+x3 <- data.frame(simb[, 1:3])
+
+
+# Add identifier #
+x3 <- x3 %>%
+  mutate(model = "Post-2000") %>%
+  rename(rr = X1,
+         best = X2,
+         inter = X3)
+
+
+# Clear space #
+remove(betas, simb, vcov, nsims)
+
+
+# Combine simulations #
+x_1 <- rbind(x1, x2, x3)
+remove(x1, x2, x3)
+
+
+# Order Levels of model #
+x_1 <- x_1 %>%
+  mutate(model = factor(model,
+                        levels = c("Post-2000", "Pre-2000", "All")))
+
+colors <- c("Risk Ratio" = "white", "Battle Deaths" = "gray35", "Interaction" = "gray80")
+
+p2 <- ggplot(data = x_1) + 
+  geom_density_ridges(aes(x = rr, y = model, fill = "Risk Ratio"), quantile_lines = TRUE, quantiles = c(0.025, 0.50, 0.975),
+                      rel_min_height = 0.0007, size = 1.2, scale = 1) +
+  geom_density_ridges(aes(x = best, y = model, fill = "Battle Deaths"), quantile_lines = TRUE, quantiles = c(0.025, 0.50, 0.975),
+                      rel_min_height = 0.0007, size = 1.2, scale = 1) +
+  geom_density_ridges(aes(x = inter, y = model, fill = "Interaction"), quantile_lines = TRUE, quantiles = c(0.025, 0.50, 0.975),
+                      rel_min_height = 0.0007, size = 1.2, scale = 1) +
+  geom_vline(xintercept = 0, linewidth = 1.5) + 
+  scale_fill_manual(values = colors) + 
+  xlab("Coefficient Magnitude") +
+  ggtitle("Effect of Risk Ratio Pre-Post Brahimi, Model 4") +
+  theme(plot.title = element_text(hjust = 0.5, size = 40),
+        plot.subtitle = element_text(hjust = 0.5, size = 30),
+        axis.title = element_text(size = 35),
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 35, margin = margin(20, 0, 0, 0)),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 25),
+        legend.key.size = unit(2, "cm"),
+        axis.text.x = element_text(size = 35),
+        axis.text.y = element_text(size = 35),
+        text = element_text(family = "Times New Roman"),
+        plot.margin = margin(1, 1, 1, 1, "cm"),
+        axis.ticks.length = unit(.25, "cm"))
+ggsave("gg_m4_pre_post.jpg", path = "~/Dropbox/Projects/Active_Projects/Dissertation/Paper", width = 18, height = 12, dpi = 800)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~#
