@@ -161,6 +161,30 @@ plot <- ggplot(data = plot_m2) +
 ggsave("gg_M2_sim.jpg", path = "~/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper", width = 14, height = 12, dpi = 800)
 
 
+# Plot mfx of X #
+plot <- ggplot(data = plot_m2) +
+  geom_ribbon(alpha = .5, aes(x = X, ymin = Lower, ymax = Upper), fill = "gray50") +
+  geom_line(data = plot_m2, aes(x = X, y = Median), linewidth = 1.5, lty = 1) +
+  scale_x_continuous(limits = c(0.4, 1)) + 
+  geom_rug(data = dat, aes(x = lag_risk_ratio, y = 2), sides = "b", position = position_jitter(w = 0.009, h = 0), alpha = 0.0099) +
+  xlab(expression("Risk Ratio"[italic("t-1")])) +
+  ylab("Predicted Monthly Troop Contributions") +
+  ggtitle("Effect of Risk Ratio on Troop Contributions") +
+  scale_y_continuous(limits = c(0, 70), breaks = c(0, 20, 40, 60)) + 
+  theme(plot.title = element_text(hjust = 0.5, size = 45),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 20),
+        legend.key.size = unit(1.5, "cm"),
+        axis.text.x = element_text(size = 40),
+        axis.text.y = element_text(size = 40),
+        axis.title.y = element_text(size = 45, margin = margin(0, 15, 0, 0)),
+        axis.title.x = element_text(size = 45, margin = margin(15, 0, 10, 0)),
+        axis.ticks.length = unit(10, "pt"),
+        text = element_text(family = "Times New Roman"))
+ggsave("gg_M2_sim_pres.jpg", path = "~/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper", width = 14, height = 12, dpi = 800)
+
+
+
 ### Model 4 ###
 
 # Import dataset #
@@ -388,6 +412,29 @@ plot <- ggplot(data = plot_m3) +
         axis.ticks.length = unit(10, "pt"),
         text = element_text(family = "Times New Roman"))
 ggsave("gg_M3_sim.jpg", path = "~/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper", width = 14, height = 12, dpi = 800)
+
+
+plot <- ggplot(data = plot_m3) +
+  geom_ribbon(alpha = .5, aes(x = X, ymin = Lower, ymax = Upper), fill = "gray50") +
+  geom_line(data = plot_m3, aes(x = X, y = Median), size = 1.5, lty = 1) +
+  scale_x_continuous(limits = c(0, 200)) + 
+  scale_y_continuous(limits = c(-280, 10), breaks = c(0, -50, -100, -150, -200, -250)) +
+  geom_rug(data = dat, aes(x = lag_best, y = 10), sides = "b", position = position_jitter(w = 0.009, h = 0), alpha = 0.0099) +
+  xlab(expression("Battle Deaths"[italic("t-1")])) +
+  ylab("Marginal Effect of Risk Ratio") +
+  ggtitle("Effect of Risk Ratio, Battle Deaths on Troop Contributions") +
+  geom_hline(yintercept = 0, linewidth = 2) +
+  theme(plot.title = element_text(hjust = 0.5, size = 35),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 20),
+        legend.key.size = unit(1.5, "cm"),
+        axis.text.x = element_text(size = 40),
+        axis.text.y = element_text(size = 40),
+        axis.title.y = element_text(size = 45, margin = margin(0, 15, 0, 0)),
+        axis.title.x = element_text(size = 45, margin = margin(15, 0, 10, 0)),
+        axis.ticks.length = unit(10, "pt"),
+        text = element_text(family = "Times New Roman"))
+ggsave("gg_M3_sim_pres.jpg", path = "~/Dropbox/Projects/Active_Projects/Mandate_Contribute/Paper", width = 14, height = 12, dpi = 800)
 
 
 # Model 5 #
