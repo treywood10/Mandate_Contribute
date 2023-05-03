@@ -1492,7 +1492,7 @@ gen less_risk_ratio = less_risky_count / (less_risky_count + risky_count)
 
 
 * Drop variables *
-drop risky_count less_risky_count
+gen total_count = risky_count + less_risky_count
 
 
 *********************************
@@ -2260,7 +2260,7 @@ drop mission_country_iso3 region subtasks totaltasks numtasks contributor_iso3 c
 *** Lag IVs ***
 ***************
 
-local IVs qual curr low deaths_civilians deaths_unknown best gov_death non_gov_death best_2 l_duration GDP_cont GDP_host host_size dem_host dem_cont same_continent s_un_atop bi_trade border illness_m accident_m malicious_m other_m total_m mil_m obs_m police_m local_m international_m otherstaff_m all_troops mis_change un_change re_hat outcome ended
+local IVs qual curr low deaths_civilians deaths_unknown best gov_death non_gov_death best_2 l_duration GDP_cont GDP_host host_size dem_host dem_cont same_continent s_un_atop bi_trade border illness_m accident_m malicious_m other_m total_m mil_m obs_m police_m local_m international_m otherstaff_m all_troops mis_change un_change re_hat outcome ended risky_count total_count less_risky_count
 
 foreach x of varlist `IVs' {
 	bysort ccode_cont mission (year month): gen lag_`x' = `x'[_n-1]
@@ -2381,6 +2381,10 @@ label var lag_un_change "Previous UN Mission"
 label var lag_re_hat "Re-hatted"
 
 label var observe "Observer Mission"
+
+label var lag_risky_count "Risky Task Count"
+
+label var lag_total_count "Total Task Count"
 
 
 * Save dataset *

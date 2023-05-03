@@ -835,5 +835,62 @@ addnotes("Dependent variable is risk ratio.") ///
 replace 
 
 
+**********************
+*** Count of Tasks ***
+**********************
 
+
+* Bring in original dataset.
+use Data_Analysis/Mandate_Cont.dta, clear
+
+
+* Model 20: Total Count, bivariate * 
+eststo m20: nbreg troops lag_total_count lag_best_2 l_troops if $samp_res, cluster(ccode_cont) difficult nolog iterate(1000)
+
+
+* Model 21: Risky Count, bivariate * 
+eststo m21: nbreg troops lag_risky_count lag_best_2 l_troops if $samp_res, cluster(ccode_cont) difficult nolog iterate(1000)
+
+
+* Model 22: Total Count * 
+eststo m22: nbreg troops lag_total_count lag_best_2 $mission $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 23: Risky Count * 
+eststo m23: nbreg troops lag_risky_count lag_best_2 $mission $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 24: Total Count X Battle Deaths *
+eststo m24: nbreg troops c.lag_total_count##c.lag_best_2 $mission $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 25: Total Count X Battle Deaths *
+eststo m25: nbreg troops c.lag_risky_count##c.lag_best_2 $mission $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 26: Total Count, shortfalls *
+eststo m26: nbreg troops lag_total_count lag_best_2 $mission2 $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 27: Risky Count, shortfalls *
+eststo m27: nbreg troops lag_risky_count lag_best_2 $mission2 $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 28: Total Count X Battle Deaths, shortfalls *
+eststo m28: nbreg troops c.lag_total_count##c.lag_best_2 $mission2 $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+* Model 29: Risky Count X Battle Deaths, shortfalls *
+eststo m29: nbreg troops c.lag_risky_count##c.lag_best_2 $mission2 $contributor $dyad l_troops if $samp_res , cluster(ccode_cont) difficult 
+
+
+esttab m20 m21 m22 m23 m24 m25 m26 m27 m28 m29  ///
+using Paper/Reg_Counts_Final.tex, ///
+se(%6.3f) b(%6.3f) label nodep ///
+title(The Effect of Task Counts on Contributions \label{Table 2}) ///
+interaction(##) ///
+order(lag_total_count lag_risky_count lag_best_2 lag_troops_short $mission $contributor $dyad l_troops) ///
+star(+ 0.10 * 0.05 ** 0.01) ///
+addnotes("Dependent variable is troop counts. 15 potential contributor random sample.") ///
+replace 
 
